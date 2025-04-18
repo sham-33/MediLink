@@ -4,6 +4,15 @@
   --bg-primary: #541616;
 }
 
+:root {
+  --bg-brown: #ffecec;
+}
+
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /*Used in TopDoctors.jsx*/
+}
+
 .active hr {
   @apply block; /* When clicked particuker navbar, that will be underlined */
 }
