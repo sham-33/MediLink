@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+:root {
+  --bg-primary: #541616;
+}
+
+.active hr {
+  @apply block; /* When clicked particuker navbar, that will be underlined */
+}
+
+::-webkit-scrollbar {
+  @apply hidden;
+}
