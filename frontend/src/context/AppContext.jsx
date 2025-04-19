@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { doctors } from "../assets/assets_frontend/assets";
 
-export const AppContext = createContext();
+export const AppContext = createContext(); //used in topdoctors.jsx
 
 const AppContextProvider = (props) => {
   const value = {

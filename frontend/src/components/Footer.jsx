@@ -17,8 +17,8 @@ const Footer = () => {
         </div>
         {/*center*/}
         <div>
-          <p>COMPANY</p>
-          <ul>
+          <p className="text-xl font-medium mb-5">COMPANY</p>
+          <ul className="flex flex-col gap-2text-gray-600">
             <li>Home</li>
             <li>About us</li>
             <li>Contact us</li>
@@ -27,8 +27,8 @@ const Footer = () => {
         </div>
         {/*right side*/}
         <div>
-            <p>GET IN TOUCH</p>
-            <ul>
+            <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
+            <ul className="flex flex-col gap-2text-gray-600">
                 <li>+1-212-456-7890</li>
                 <li>email@gmail.com</li>
             </ul>
@@ -37,7 +37,7 @@ const Footer = () => {
       {/*copyright text*/}
       <div>
         <hr />
-        <p>Copyright © 2025 - All Right Reserved.</p>
+        <p className="py-5 text-sm text-center">Copyright © 2025 - All Right Reserved.</p>
       </div>
     </div>
   );
