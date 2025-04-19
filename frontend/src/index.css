@@ -1,5 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 @import "tailwindcss";
 
+* {
+  font-family: outfit;
+}
 :root {
   --bg-primary: #541616;
 }
@@ -10,7 +14,10 @@
 
 .auto-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /*Used in TopDoctors.jsx*/
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /*Used in TopDoctors.jsx  use this instead of grid grid-cols-auto*/  
 }
 
 .active hr {
