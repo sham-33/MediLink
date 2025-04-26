@@ -14,6 +14,15 @@ const Navbar = () => {
     { name: "Contact", link: "/contact" },
   ];
 
+  // Active link style function
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      borderBottom: isActive ? "2px solid var(--bg-primary)" : "none",
+      paddingBottom: "4px",
+      color: isActive ? "var(--bg-primary)" : ""
+    };
+  };
+
   return (
     <div className="relative">
       {/* Navbar */}
@@ -34,10 +43,15 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-start mx-auto gap-10 font-medium ml-auto ">
+        <ul className="hidden md:flex items-start mx-auto gap-10 font-medium ml-auto">
           {menuItems.map((item) => (
-            <NavLink key={item.name} to={item.link}>
-              <li className="py-1">{item.name}</li>
+            <NavLink 
+              key={item.name} 
+              to={item.link}
+              style={navLinkStyles}
+              className="py-1"
+            >
+              {item.name}
             </NavLink>
           ))}
         </ul>
@@ -100,15 +114,15 @@ const Navbar = () => {
         </div>
         <ul className="flex flex-col gap-4 font-medium">
           {menuItems.map((item) => (
-            <li
+            <NavLink
               key={item.name}
-              onClick={() => {
-                setShowMenu(false);
-                navigate(item.link);
-              }}
-              className="cursor-pointer hover:text-[var(--bg-primary)]">
+              to={item.link}
+              style={navLinkStyles}
+              onClick={() => setShowMenu(false)}
+              className="cursor-pointer hover:text-[var(--bg-primary)]"
+            >
               {item.name}
-            </li>
+            </NavLink>
           ))}
         </ul>
         <div className="mt-6 border-t pt-4">
