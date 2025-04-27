@@ -12,7 +12,7 @@ const About = () => {
 
       <div className="my-10 flex flex-col md:flex-row gap-12">
         <img
-          className="w-full md:max-w-[360px]"
+          className="w-full md:max-w-[360px] rounded-3xl"
           src={assets.about_image}
           alt=""
         />
@@ -47,18 +47,27 @@ const About = () => {
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row mb-20">
-        <div className="border px-10 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-[var(--bg-primary)] hover:text-white transition-all duration-300 text-gray-600 cursor-pointer">
+      <div className="flex flex-col md:flex-row mb-20 space-y-6 md:space-y-0 md:space-x-6">
+        <div className="border px-10 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-[var(--bg-primary)] hover:text-white transition-all duration-300 text-gray-600 cursor-pointer rounded-3xl">
           <b>Efficiency:</b>
-          <p>Streamlined appointment scheduling that fits into your busy lifestyle.</p>
+          <p>
+            Streamlined appointment scheduling that fits into your busy
+            lifestyle.
+          </p>
         </div>
-        <div className="border px-10 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-[var(--bg-primary)] hover:text-white transition-all duration-300 text-gray-600 cursor-pointer">
+        <div className="border px-10 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-[var(--bg-primary)] hover:text-white transition-all duration-300 text-gray-600 cursor-pointer rounded-3xl">
           <b>Convenience:</b>
-          <p>Access to a network of trusted healthcare professionals in your area.</p>
+          <p>
+            Access to a network of trusted healthcare professionals in your
+            area.
+          </p>
         </div>
-        <div className="border px-10 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-[var(--bg-primary)] hover:text-white transition-all duration-300 text-gray-600 cursor-pointer">
+        <div className="border px-10 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-[var(--bg-primary)] hover:text-white transition-all duration-300 text-gray-600 cursor-pointer rounded-3xl">
           <b>Personalization:</b>
-          <p>Tailored recommendations and reminders to help you stay on top of your health.</p>
+          <p>
+            Tailored recommendations and reminders to help you stay on top of
+            your health.
+          </p>
         </div>
       </div>
     </div>
