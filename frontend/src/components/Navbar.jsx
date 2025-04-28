@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [token, setToken] = useState(true);
 
   const menuItems = [
@@ -19,7 +20,7 @@ const Navbar = () => {
     return {
       borderBottom: isActive ? "2px solid var(--bg-primary)" : "none",
       paddingBottom: "4px",
-      color: isActive ? "var(--bg-primary)" : ""
+      color: isActive ? "var(--bg-primary)" : "",
     };
   };
 
@@ -48,12 +49,11 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-start gap-10 font-medium">
           {menuItems.map((item) => (
-            <NavLink 
-              key={item.name} 
+            <NavLink
+              key={item.name}
               to={item.link}
               style={navLinkStyles}
-              className="py-1"
-            >
+              className="py-1">
               {item.name}
             </NavLink>
           ))}
@@ -97,7 +97,7 @@ const Navbar = () => {
             </button>
           )}
         </div>
-        
+
         {/* Mobile account button */}
         <div className="md:hidden">
           {token ? (
@@ -106,7 +106,7 @@ const Navbar = () => {
                 className="w-8 rounded-full"
                 src={assets.profile_pic}
                 alt=""
-                onClick={() => setShowMenu(true)}
+                onClick={() => setShowProfileMenu(true)}
               />
             </div>
           ) : (
@@ -119,85 +119,95 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Sidebar Overlay */}
+      {/* Main Menu Sidebar Overlay */}
       {showMenu && (
         <div
           className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40 md:hidden"
           onClick={() => setShowMenu(false)}></div>
       )}
 
-      {/* Sidebar Content */}
+      {/* Main Menu Sidebar Content */}
       <div
-  className={`fixed top-0 left-0 w-64 h-full bg-white shadow-2xl z-50 p-6 transform transition-transform duration-300 md:hidden ${
-    showMenu ? "translate-x-0" : "-translate-x-full"
-  } rounded-tr-3xl rounded-br-3xl`}
->
-  {/* Header */}
-  <div className="flex justify-between items-center mb-8">
-    <h2 className="text-2xl font-bold text-gray-800">Menu</h2>
-    <button onClick={() => setShowMenu(false)} className="text-3xl font-semibold text-gray-600 hover:text-black transition">
-      ×
-    </button>
-  </div>
+        className={`fixed top-0 left-0 w-64 h-full bg-white shadow-2xl z-50 p-6 transform transition-transform duration-300 md:hidden ${
+          showMenu ? "translate-x-0" : "-translate-x-full"
+        } rounded-tr-3xl rounded-br-3xl`}>
+        {/* Header */}
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-2xl font-bold text-gray-800">Menu</h2>
+          <button
+            onClick={() => setShowMenu(false)}
+            className="text-3xl font-semibold text-gray-600 hover:text-black transition">
+            ×
+          </button>
+        </div>
 
-  {/* Menu Items */}
-  <ul className="flex flex-col gap-5 font-medium text-gray-700">
-    {menuItems.map((item) => (
-      <NavLink
-        key={item.name}
-        to={item.link}
-        style={navLinkStyles}
-        onClick={() => setShowMenu(false)}
-        className="cursor-pointer hover:text-[var(--bg-primary)] transition"
-      >
-        {item.name}
-      </NavLink>
-    ))}
-  </ul>
+        {/* Menu Items */}
+        <ul className="flex flex-col gap-5 font-medium text-gray-700">
+          {menuItems.map((item) => (
+            <NavLink
+              key={item.name}
+              to={item.link}
+              style={navLinkStyles}
+              onClick={() => setShowMenu(false)}
+              className="cursor-pointer hover:text-[var(--bg-primary)] transition">
+              {item.name}
+            </NavLink>
+          ))}
+        </ul>
+      </div>
 
-  {/* Bottom Section */}
-  <div className="mt-10 border-t pt-6 flex flex-col gap-4">
-    {token ? (
-      <>
-        <p
-          onClick={() => {
-            setShowMenu(false);
-            navigate("/my-profile");
-          }}
-          className="cursor-pointer hover:text-[var(--bg-primary)] transition"
-        >
-          My Profile
-        </p>
-        <p
-          onClick={() => {
-            setShowMenu(false);
-            navigate("/my-appointments");
-          }}
-          className="cursor-pointer hover:text-[var(--bg-primary)] transition"
-        >
-          My Appointments
-        </p>
-        <p
-          onClick={() => setToken(false)}
-          className="cursor-pointer hover:text-[var(--bg-primary)] transition"
-        >
-          Logout
-        </p>
-      </>
-    ) : (
-      <button
-        onClick={() => {
-          setShowMenu(false);
-          navigate("/login");
-        }}
-        className="bg-[var(--bg-primary)] text-white w-full py-3 rounded-full mt-4 hover:brightness-110 transition"
-      >
-        Create account
-      </button>
-    )}
-  </div>
-</div>
+      {/* Profile Menu Overlay */}
+      {showProfileMenu && (
+        <div
+          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setShowProfileMenu(false)}></div>
+      )}
 
+      {/* Profile Menu Content */}
+      {token && (
+        <div
+          className={`fixed top-0 right-0 w-50 h-60 bg-white shadow-2xl z-50 p-6 transform transition-transform duration-300 md:hidden ${
+            showProfileMenu ? "translate-x-0" : "translate-x-full"
+          } rounded-tl-3xl rounded-bl-3xl`}>
+          {/* Header */}
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-800">Profile</h2>
+            <button
+              onClick={() => setShowProfileMenu(false)}
+              className="text-3xl font-semibold text-gray-600 hover:text-black transition">
+              ×
+            </button>
+          </div>
+
+          {/* Profile Options */}
+          <div className="flex flex-col gap-5 font-medium text-gray-700">
+            <p
+              onClick={() => {
+                setShowProfileMenu(false);
+                navigate("/my-profile");
+              }}
+              className="cursor-pointer hover:text-[var(--bg-primary)] transition">
+              My Profile
+            </p>
+            <p
+              onClick={() => {
+                setShowProfileMenu(false);
+                navigate("/my-appointments");
+              }}
+              className="cursor-pointer hover:text-[var(--bg-primary)] transition">
+              My Appointments
+            </p>
+            <p
+              onClick={() => {
+                setToken(false);
+                setShowProfileMenu(false);
+              }}
+              className="cursor-pointer hover:text-[var(--bg-primary)] transition">
+              Logout
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

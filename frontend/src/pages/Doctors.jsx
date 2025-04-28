@@ -30,13 +30,16 @@ const Doctors = () => {
       </p>
       <div className="flex flex-col sm:flex-row items-start gap-5 mt-5">
         <button
-          className={`py-1 px-3 border rounded-full text-sm transition-all sm:hide ${
+          className={`block sm:hidden py-1 px-3 border rounded-full text-sm transition-all ${
             showFilter ? "bg-[var(--bg-primary)] text-white" : ""
           }`}
           onClick={() => setShowFilter((prev) => !prev)}>
           Filters
         </button>
-        <div className={`flex-col sm:flex-col overflow-x-auto pb-3 sm:pb-0 w-full sm:w-auto gap-2 sm:gap-4 text-sm text-gray-600 ${showFilter ? 'flex' : 'hidden sm:flex'}`}>
+        <div
+          className={`flex-col sm:flex-col overflow-x-auto pb-3 sm:pb-0 w-full sm:w-auto gap-2 sm:gap-4 text-sm text-gray-600 ${
+            showFilter ? "flex" : "hidden sm:flex"
+          }`}>
           <p
             onClick={() =>
               speciality === "General physician"
