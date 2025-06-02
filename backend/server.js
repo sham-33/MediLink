@@ -13,7 +13,7 @@ app.use(cors());
 
 //api endpoints
 app.get("/", (req, res) => {
-    res.send('API WORKING');
+    res.send('API WORKING again');
 })
 
 app.listen(port, () => console.log("server started", port));
