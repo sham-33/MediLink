@@ -2,15 +2,10 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(`${process.env.MONGODB_URI}/medilink`, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-
-    console.log("Database connected");
+    mongoose.connect(process.env.MONGODB_URI);
+    console.log("✅ MongoDB Connected");
   } catch (error) {
-    console.error("Database connection error:", error);
-    process.exit(1); // optional: stop the app if DB connection fails
+    console.log("❌ MongoDB Connection Error:", error);
   }
 };
 
