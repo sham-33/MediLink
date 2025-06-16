@@ -117,18 +117,15 @@ const Navbar = () => {
             </button>
           )}
         </div>
-      </div>
-
-      {/* Main Menu Sidebar Overlay */}
+      </div>      {/* Main Menu Sidebar Overlay */}
       {showMenu && (
         <div
-          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40 md:hidden"
+          className="fixed top-0 left-0 w-full h-full backdrop-blur-sm bg-black/30 z-40 md:hidden"
           onClick={() => setShowMenu(false)}></div>
       )}
 
-      {/* Main Menu Sidebar Content */}
-      <div
-        className={`fixed top-0 left-0 w-64 h-full bg-white shadow-2xl z-50 p-6 transform transition-transform duration-300 md:hidden ${
+      {/* Main Menu Sidebar Content */}      <div
+        className={`fixed top-0 left-0 w-52 h-full bg-white shadow-2xl z-50 p-6 transform transition-transform duration-300 md:hidden ${
           showMenu ? "translate-x-0" : "-translate-x-full"
         } rounded-tr-3xl rounded-br-3xl`}>
         {/* Header */}
@@ -154,12 +151,10 @@ const Navbar = () => {
             </NavLink>
           ))}
         </ul>
-      </div>
-
-      {/* Profile Menu Overlay */}
+      </div>      {/* Profile Menu Overlay */}
       {showProfileMenu && (
         <div
-          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40 md:hidden"
+          className="fixed top-0 left-0 w-full h-full backdrop-blur-sm bg-black/30 z-40 md:hidden"
           onClick={() => setShowProfileMenu(false)}></div>
       )}
 
