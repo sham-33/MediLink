@@ -27,7 +27,7 @@ const Banner = () => {
           className="w-full absolute bottom-0 right-0 max-w-md"
           src={assets.appointment_img}
           alt=""
-          srcset=""
+          srcSet=""
         />
       </div>
     </div>

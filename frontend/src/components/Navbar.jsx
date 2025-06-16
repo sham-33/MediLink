@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between w-full md:w-auto">
           {/* Sidebar Toggle Button - visible on small screens */}
           <button className="md:hidden mr-4" onClick={() => setShowMenu(true)}>
-            <img src={assets.menu_icon} alt="menu" className="w-6" />
+            <img src={assets.menu_icon} alt="menu" className="w-6 -scale-x-100" />
           </button>
 
           {/* Logo - positioned naturally on the left */}
