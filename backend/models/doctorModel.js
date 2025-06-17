@@ -36,7 +36,7 @@ const doctorSchema = new mongoose.Schema(
     },
     availabile: {
       type: Boolean,
-      required: true,
+      default: true,
     },
     fees: {
       type: Number,
@@ -55,7 +55,7 @@ const doctorSchema = new mongoose.Schema(
       default: {},
     },
   },
-  { minimize: false }
+  { timestamps: true }
 );
 
 const doctorModel =
