@@ -4,7 +4,7 @@ import connectDB from "./config/mongodb.js";
 import { connect } from "mongoose";
 import dotenv from "dotenv";
 import connectCloudinary from "./config/cloudinary.js";
-import adminRouter from "./routes/adminroute.js";
+import adminRouter from "./routes/adminRoute.js";
 dotenv.config();
 
 //app config
