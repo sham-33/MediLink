@@ -23,4 +23,7 @@ const authAdmin = async (req, res, next) => {
       message: error.message,
     });
   }
+
 };
+
+export default authAdmin;
